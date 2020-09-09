@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-news-digest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipegp/puppeteer-news-digest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipegp/puppeteer-news-digest/issues"
+  },
+  "homepage": "https://github.com/felipegp/puppeteer-news-digest#readme",
+  "dependencies": {
+    "puppeteer": "^5.2.1"
+  }
+}
