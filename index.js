@@ -1,17 +1,22 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
+import { NEWS } from './src/domain/news.js';
 
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://uol.com.br');
 
-  const labels = await getNewsTitles('.manchete-editorial .relacionadas-simples li', page);
+  const labels = await getNews(NEWS.HACKERNOON, page);
 
   console.log(labels);
 
   await browser.close();
 })();
 
-async function getNewsTitles(selector, page) {
-  return page.$$eval(selector, elems => elems.map(el => el.innerText));
+async function getNews(newsType, page) {
+  await page.goto(newsType.url);
+  return page.$$eval(newsType.selector, (elems) =>
+    elems.map((el) => {
+      return `${el.textContent} (${el.href})`;
+    })
+  );
 }
