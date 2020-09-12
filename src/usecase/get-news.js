@@ -8,7 +8,10 @@ async function execute() {
   }, '');
 
   const choice = await promptGateway.getChoiceInput(choices);
-  return newsGateway.getNews(NEWS[choice]);
+
+  return choice && typeof Number(choice) === 'number' && NEWS[choice]
+    ? newsGateway.getNews(NEWS[choice])
+    : [];
 }
 
 export default {
